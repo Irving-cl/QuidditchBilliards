@@ -14,8 +14,9 @@ const float TABLE_BASE_THICKNESS = 0.2f;                 // Thickness of table's
 const float TABLE_WALL_HEIGHT = 1.4 * R;                 // Height of table's wall
 const float TABLE_LRWALL_LENGTH = TABLE_WIDTH - 6 * R;   // Length of table's left and right wall
 const float TABLE_FBWALL_LENGTH = (TABLE_LENGTH - (6 + 2 * SQRT2) * R) / 2;    // Length of table's front and back wall
-const float FLAG_ROLE_LENGTH = 7.5f;                     // Length of flag's role
-const float FLAG_ROLE_RADIUS = 0.15f;                    // Radius of flag's role
+const float ROOM_LENGTH = 50.0f;                         // Length, height and width of the room
+const float FLAG_POLE_LENGTH = 7.5f + ROOM_LENGTH / 6;   // Length of flag's role
+const float FLAG_POLE_RADIUS = 0.15f;                    // Radius of flag's role
 const float CUE_LENGTH = 10.0f;                          // Length of the cue
 
 /// Speed constants
@@ -29,7 +30,7 @@ const float UPDOWN_TIME = 0.75f;                         // Time the golden ball
 const float STOP_TIME = 0.5f;                            // Time the golden ball stays on the table for once
 
 /// Others
-const unsigned int NUM_TEXTURES = 8;                     // Number of textures required in the application
+const unsigned int NUM_TEXTURES = 9;                     // Number of textures required in the application
 const float FLAG_PARAMETER = 10.0f;                      // Decides the size of the flag
 const float GBALL_FLY_HEIGHT = 5.0f;                     // Height of the golden ball when it flys
 const float CUE_ANGLE = -15.0f;                          // Angle of between the cue and the table plane
@@ -41,9 +42,10 @@ const float STIPPLE_MAX_MOVEMENT = 0.3f;                 // When it reaches max 
 const float GOLDEN_BALL_HEIGHT = 5.0f;                   // Height of golden ball when it is above the table
 
 /// Positions constants
-const float WALL_FRONT_BOUND = -TABLE_WIDTH / 2 + R;     // Front bound of the wall
-const float WALL_BACK_BOUND = TABLE_WIDTH / 2 - R;       // Back bound of the wall
-const float WALL_LEFT_BOUND = -TABLE_LENGTH / 2 + R;     // Left bound of the wall
-const float WALL_RIGHT_BOUND = TABLE_LENGTH / 2 - R;     // Right bound of the wall
+const float WALL_FRONT_BOUND = -TABLE_WIDTH / 2 + R;     // Front bound of the wall of table
+const float WALL_BACK_BOUND = TABLE_WIDTH / 2 - R;       // Back bound of the wall of table
+const float WALL_LEFT_BOUND = -TABLE_LENGTH / 2 + R;     // Left bound of the wall of table
+const float WALL_RIGHT_BOUND = TABLE_LENGTH / 2 - R;     // Right bound of the wall of table
+const float TABLE_PLANE_HEIGHT = ROOM_LENGTH / 6;              // Height of table plane
 
 #endif // _QUIDDITCHCONSTANTS_H_

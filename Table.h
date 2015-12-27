@@ -18,7 +18,6 @@ public:
 	virtual void    Update();       // Implement Update function
 
 private:
-
 	/// Method
 	void   DrawCube(unsigned int tex1_ID,
 		unsigned int tex2_ID, Vector3 LHW,

@@ -43,13 +43,14 @@ void Flag::Draw()
 		glPushMatrix();
 		{
 			glBindTexture(GL_TEXTURE_2D, m_TexturePool[5]);
+			glTranslatef(0.0f, -TABLE_PLANE_HEIGHT, 0.0f);
 			glRotatef(90.0f, -1.0f, 0.0f, 0.0f);            // Rotate to vertical
 			gluCylinder(m_Cylinder->GetQuadratic(), 
-				FLAG_ROLE_RADIUS, FLAG_ROLE_RADIUS, FLAG_ROLE_LENGTH, 32, 32);
+				FLAG_POLE_RADIUS, FLAG_POLE_RADIUS, FLAG_POLE_LENGTH, 32, 32);
 			m_Cylinder->DrawCircleArea(0.0, 0.0, 
-				FLAG_ROLE_LENGTH, FLAG_ROLE_RADIUS, 32);    // Top  
+				FLAG_POLE_LENGTH, FLAG_POLE_RADIUS, 32);    // Top  
 			m_Cylinder->DrawCircleArea(0.0, 0.0, 
-				0.0, FLAG_ROLE_RADIUS, 32);                 // Bottom
+				0.0, FLAG_POLE_RADIUS, 32);                 // Bottom
 		}
 		glPopMatrix();
 		/// Draw the flag

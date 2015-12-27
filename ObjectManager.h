@@ -5,6 +5,7 @@
 #include <vector>
 #include "CBMPLoader.h"
 #include "OpenGLObject.h"
+#include "Room.h"
 #include "Table.h"
 #include "Flag.h"
 #include "Balls.h"

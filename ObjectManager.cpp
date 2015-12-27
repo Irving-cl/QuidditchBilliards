@@ -67,7 +67,8 @@ ObjectManager::~ObjectManager()
 void ObjectManager::LoadTextures()
 {
 	char filename[128];
-	char *bmpName[] = { "wood", "green_area", "ghost_ball", "wander_ball", "golden_ball", "main_ball", "cue", "sjtu" };
+	char *bmpName[] = { "wood", "green_area", "ghost_ball", "wander_ball",
+		"golden_ball", "main_ball", "cue", "sjtu", "wall" };
 	for (int i = 0; i < NUM_TEXTURES; i++)
 	{
 		sprintf(filename, "data/%s", bmpName[i]);
@@ -112,6 +113,11 @@ void ObjectManager::CreateObjects()
 	Cue * cue = new Cue(mainBall);
 	m_Objects.push_back(cue);
 	cue->SetInput(m_Input);
+
+	/// Create skybox(room scene)
+	Room * room = new Room();
+	room->SetPosition(Vector3(-ROOM_LENGTH / 2, -TABLE_PLANE_HEIGHT, -ROOM_LENGTH / 2));
+	m_Objects.push_back(room);
 }
 
 //===========================================================================//
