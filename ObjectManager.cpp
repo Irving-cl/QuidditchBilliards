@@ -34,6 +34,9 @@ ObjectManager::ObjectManager(CInputSystem * input)
 		int direction = rand();
 		((Ball *)m_Objects[i])->SetSpeed(Vector3(0.1f * cos(direction), 0.0f, 0.1f * sin(direction)));
 	}
+
+	/// Create light
+	SetLight();
 }
 
 //===========================================================================//
@@ -144,6 +147,13 @@ void ObjectManager::SetInitialPosition()
 		}
 	}
 	m_Objects[15]->SetPosition(Vector3(0.0f, TABLE_BASE_THICKNESS + R + GBALL_FLY_HEIGHT, 0.0f));    // Golden ball
+}
+
+//===========================================================================//
+
+void ObjectManager::SetLight()
+{
+	m_Light->Init();
 }
 
 //===========================================================================//

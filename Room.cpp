@@ -24,6 +24,10 @@ void Room::Draw()
 		glTranslatef(m_Position.x, m_Position.y, m_Position.z);
 		unsigned int tex1_ID = m_TexturePool[8];
 
+		/// Set material
+		GLfloat gray[] = { 0.75f, 0.75f, 0.75f, 1.0f };
+		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, gray);
+
 		/// Front
 		glBindTexture(GL_TEXTURE_2D, tex1_ID);
 		glBegin(GL_QUADS);

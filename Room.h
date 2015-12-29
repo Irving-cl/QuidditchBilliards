@@ -17,9 +17,6 @@ public:
 	virtual void Draw();      // Implement Draw function
 	virtual void Update();    // Implement Update function
 
-private:
-	/// Member
-	//unsigned int * m_TextureIDs;    // IDs of textures of the six surfaces of the room
 };
 
 #endif _ROOM_H_
