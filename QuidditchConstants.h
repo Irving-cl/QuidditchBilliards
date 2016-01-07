@@ -30,7 +30,7 @@ const float UPDOWN_TIME = 0.75f;                         // Time the golden ball
 const float STOP_TIME = 0.5f;                            // Time the golden ball stays on the table for once
 
 /// Others
-const unsigned int NUM_TEXTURES = 9;                     // Number of textures required in the application
+const unsigned int NUM_TEXTURES = 10;                    // Number of textures required in the application
 const float FLAG_PARAMETER = 10.0f;                      // Decides the size of the flag
 const float GBALL_FLY_HEIGHT = 5.0f;                     // Height of the golden ball when it flys
 const float CUE_ANGLE = -15.0f;                          // Angle of between the cue and the table plane
@@ -46,6 +46,6 @@ const float WALL_FRONT_BOUND = -TABLE_WIDTH / 2 + R;     // Front bound of the w
 const float WALL_BACK_BOUND = TABLE_WIDTH / 2 - R;       // Back bound of the wall of table
 const float WALL_LEFT_BOUND = -TABLE_LENGTH / 2 + R;     // Left bound of the wall of table
 const float WALL_RIGHT_BOUND = TABLE_LENGTH / 2 - R;     // Right bound of the wall of table
-const float TABLE_PLANE_HEIGHT = ROOM_LENGTH / 6;              // Height of table plane
+const float TABLE_PLANE_HEIGHT = ROOM_LENGTH / 6;        // Height of table plane
 
 #endif // _QUIDDITCHCONSTANTS_H_

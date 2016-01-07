@@ -38,8 +38,8 @@ void Cue::SetInput(CInputSystem * input)
 
 void Cue::Draw()
 {
-	if (!m_MainBall->IsStatic())    // Only draw cue when the main ball is static
-		return;
+	//if (!m_MainBall->IsStatic())    // Only draw cue when the main ball is static
+	//	return;
 
 	glPushMatrix();
 	{

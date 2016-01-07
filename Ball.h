@@ -7,7 +7,7 @@
 /*
     Ball class is a virtual class
   must be implemented by actual ball
-  class
+  class.
  */
 
 class Ball : public OpenGLObject

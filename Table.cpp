@@ -19,6 +19,10 @@ Table::~Table()
 
 void Table::Draw()
 {
+	GLfloat specref[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specref);
+	//glMateriali(GL_FRONT_AND_BACK, GL_SHININESS, 128);
+
 	/// Draw base
 	DrawCube(m_TexturePool[0], m_TexturePool[1],
 		Vector3(TABLE_LENGTH, TABLE_BASE_THICKNESS, TABLE_WIDTH),

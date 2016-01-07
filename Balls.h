@@ -14,8 +14,8 @@ class MainBall : public Ball
 {
 public:
 	/// Public interfaces
-	virtual void   Draw();      // Implement Draw function
-	virtual void   Update();    // Implement Update function
+	virtual void Draw();          // Implement Draw function
+	virtual void Update();        // Implement Update function
 
 };
 
@@ -28,8 +28,8 @@ class GhostBall : public Ball
 {
 public:
 	/// Public interfaces
-	virtual void   Draw();      // Implement Draw function
-	virtual void   Update();    // Implement Update function
+	virtual void Draw();          // Implement Draw function
+	virtual void Update();        // Implement Update function
 
 };
 
@@ -44,8 +44,8 @@ class WanderBall : public Ball
 {
 public:
 	/// Public interfaces
-	virtual void   Draw();      // Implement Draw function
-	virtual void   Update();    // Implement Update function
+	virtual void Draw();          // Implement Draw function
+	virtual void Update();        // Implement Update function
 
 };
 
@@ -57,15 +57,15 @@ public:
   you hit it.
  */
 
-enum GoldenBallState { FLY, STOP, UP, DOWN };    // Different states of golden ball
+enum GoldenBallState { FLY, STOP, UP, DOWN };        // Different states of golden ball
 
 class GoldenBall : public Ball
 {
 public:
 	/// Public interfaces
-	GoldenBall();               // Golden ball has its own constructor
-	virtual void   Draw();      // Implement Draw function
-	virtual void   Update();    // Implement Update function
+	GoldenBall();                 // Golden ball has its own constructor
+	virtual void Draw();          // Implement Draw function
+	virtual void Update();        // Implement Update function
 
 private:
 	GoldenBallState m_State;

@@ -6,9 +6,9 @@
 #include "QuidditchConstants.h"
 
 /*
-    Light class. This class control
-  light in the scene.
- */
+Light class. This class control
+light in the scene.
+*/
 
 class Light
 {

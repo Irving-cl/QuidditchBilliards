@@ -12,7 +12,7 @@ ObjectManager::ObjectManager(CInputSystem * input)
 		m_TexturePool[i] = m_Textures[i].ID;           // Give values
 
 	/* Note: Input system must be set before creating
-	   objects since cue will have input system memeber */
+	objects since cue will have input system memeber */
 	m_Input = input;                                   // Set input
 
 	/// Create objects
@@ -71,7 +71,7 @@ void ObjectManager::LoadTextures()
 {
 	char filename[128];
 	char *bmpName[] = { "wood", "green_area", "ghost_ball", "wander_ball",
-		"golden_ball", "main_ball", "cue", "sjtu", "wall" };
+		"golden_ball", "main_ball", "cue", "sjtu", "wall", "flare" };
 	for (int i = 0; i < NUM_TEXTURES; i++)
 	{
 		sprintf(filename, "data/%s", bmpName[i]);
@@ -91,7 +91,7 @@ void ObjectManager::CreateObjects()
 	/// Create table
 	Table * table = new Table();
 	m_Objects.push_back(table);
-	
+
 	/// Create flag
 	Flag * flag = new Flag();
 	m_Objects.push_back(flag);
@@ -121,6 +121,11 @@ void ObjectManager::CreateObjects()
 	Room * room = new Room();
 	room->SetPosition(Vector3(-ROOM_LENGTH / 2, -TABLE_PLANE_HEIGHT, -ROOM_LENGTH / 2));
 	m_Objects.push_back(room);
+
+	/// Create particle system
+	ParticleExplosion * particleSystem = new ParticleExplosion();
+	particleSystem->Init(2000);
+	m_Objects.push_back(particleSystem);
 }
 
 //===========================================================================//
