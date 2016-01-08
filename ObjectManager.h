@@ -32,6 +32,7 @@ private:
 	/// Members
 	std::vector<OpenGLObject*> m_Objects;        // The vector stores all the objects
 	Light * m_Light;                             // Light in the scene
+	ParticleSystem * m_ParticleSystem;           // Particle system
 	CBMPLoader m_Textures[NUM_TEXTURES];         // Textures
 	unsigned int * m_TexturePool;                // Texture pool offered to objects to pick textures
 	CInputSystem * m_Input;                      // Pointer to input system

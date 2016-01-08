@@ -25,7 +25,7 @@ Ball::~Ball()
 
 //===========================================================================//
 
-void Ball::CheckHit(Ball * otherBall)
+bool Ball::CheckHit(Ball * otherBall)
 {
 	Vector3 v = otherBall->m_Position - m_Position;    // Vector of positions
 	float distance = v.length();
@@ -34,7 +34,9 @@ void Ball::CheckHit(Ball * otherBall)
 		Vector3 temp = m_Speed;
 		m_Speed = otherBall->m_Speed;
 		otherBall->m_Speed = temp;
+		return true;
 	}
+	return false;
 }
 
 //===========================================================================//

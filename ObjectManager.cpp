@@ -123,9 +123,8 @@ void ObjectManager::CreateObjects()
 	m_Objects.push_back(room);
 
 	/// Create particle system
-	ParticleExplosion * particleSystem = new ParticleExplosion();
-	particleSystem->Init(2000);
-	m_Objects.push_back(particleSystem);
+	m_ParticleSystem = new ParticleSystem();
+	m_Objects.push_back(m_ParticleSystem);
 }
 
 //===========================================================================//
@@ -191,6 +190,14 @@ void ObjectManager::Update()
 
 	/// Balls hit each other
 	for (int i = 2; i < 14; i++)
+	{
 		for (int j = i + 1; j < 15; j++)
-			((Ball *)m_Objects[i])->CheckHit((Ball *)m_Objects[j]);
+		{
+			if (((Ball *)m_Objects[i])->CheckHit((Ball *)m_Objects[j]))
+			{
+				Vector3 position = (m_Objects[i]->GetPosition() + m_Objects[j]->GetPosition()) / 2.0f;
+				m_ParticleSystem->GenerateExplosion(position);
+			}
+		}
+	}
 }

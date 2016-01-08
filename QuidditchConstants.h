@@ -40,6 +40,7 @@ const GLushort STIPPLE_PATTERN = 0x3333;                 // Pattern of stipple n
 const float STIPPLE_MOVEMENT = 0.005f;                   // Single movement of stipple
 const float STIPPLE_MAX_MOVEMENT = 0.3f;                 // When it reaches max movement, the stipple movement will be reset to 0
 const float GOLDEN_BALL_HEIGHT = 5.0f;                   // Height of golden ball when it is above the table
+const int PARTICLE_NUM = 20;                             // Number of particles in a single explosion
 
 /// Positions constants
 const float WALL_FRONT_BOUND = -TABLE_WIDTH / 2 + R;     // Front bound of the wall of table

@@ -12,10 +12,10 @@
 class Room : public OpenGLObject
 {
 public:
-	Room();                   // Constructor
-	~Room();                  // Destructor
-	virtual void Draw();      // Implement Draw function
-	virtual void Update();    // Implement Update function
+	Room();                       // Constructor
+	~Room();                      // Destructor
+	virtual void Draw();          // Implement Draw function
+	virtual void Update();        // Implement Update function
 
 };
 
