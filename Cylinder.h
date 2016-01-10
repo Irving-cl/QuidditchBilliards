@@ -14,15 +14,15 @@
 class Cylinder
 {
 public:
-	Cylinder();    // Constructor
-	~Cylinder();   // Destructor
+	Cylinder();        // Constructor
+	~Cylinder();       // Destructor
 
-	void   DrawCircleArea(float cx, float cy,    // Draw top and bottom of a cylinder
+	void   DrawCircleArea(float cx, float cy,        // Draw top and bottom of a cylinder
 		float cz, float r, int num_segments);
-	GLUquadricObj* GetQuadratic();               // Get the quadratic
+	GLUquadricObj* GetQuadratic();                   // Get the quadratic
 
 private:
-	GLUquadricObj * m_Quadratic;                 // Required to draw main body of a cylinder
+	GLUquadricObj * m_Quadratic;                     // Required to draw main body of a cylinder
 };
 
 #endif // _CYLINDER_H_

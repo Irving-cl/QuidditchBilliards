@@ -14,8 +14,8 @@ class Table : public OpenGLObject
 public:
 	Table();                        // Constructor
 	~Table();                       // Destructor
-	virtual void    Draw();         // Implement Draw function
-	virtual void    Update();       // Implement Update function
+	virtual void Draw();            // Implement Draw function
+	virtual void Update();          // Implement Update function
 
 private:
 	/// Method

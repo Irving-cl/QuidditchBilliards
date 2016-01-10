@@ -39,10 +39,10 @@ public:
 	ParticleExplosion();          // Constructor
 	~ParticleExplosion();         // Destructor
 
-    /// Public interfaces 
+	/// Public interfaces 
 	void Init(int num);           // Initialization
-    virtual void Draw();          // Implement Draw function
-    virtual void Update();        // Implement Update function
+	virtual void Draw();          // Implement Draw function
+	virtual void Update();        // Implement Update function
 	bool IsAlive();               // Is the explosion alive
 
 private:

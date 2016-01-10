@@ -14,14 +14,14 @@ static float specularRef[] = { 0.8f, 0.8f, 0.8f, 1.0f };
 
 Light::Light()
 {
-
+	// Empty
 }
 
 //===========================================================================//
 
 Light::~Light()
 {
-
+	// Empty
 }
 
 //===========================================================================//
@@ -39,4 +39,21 @@ void Light::Init()
 	
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specularRef);
 	glMateriali(GL_FRONT, GL_SHININESS, 64);
+}
+
+//===========================================================================//
+
+void Light::SetInput(CInputSystem * input)
+{
+	m_Input = input;
+}
+
+//===========================================================================//
+
+void Light::Update()
+{
+	if (m_Input->GetKeyboard()->KeyDown(DIK_O))
+		glEnable(GL_LIGHT0);
+	if (m_Input->GetKeyboard()->KeyDown(DIK_P))
+		glDisable(GL_LIGHT0);
 }

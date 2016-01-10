@@ -13,26 +13,25 @@
 class CameraRotate
 {
 public:
-	CameraRotate();             // Constructor
-	~CameraRotate();            // Destructor
+	CameraRotate();                 // Constructor
+	~CameraRotate();                // Destructor
 
-	void   SetLook();           // Set the visual angle
-	void   LRotate();           // Left Rotate
-	void   RRotate();           // Right Rotate
-	void   URotate();           // Up Rotate
-	void   DRotate();           // Down Rotate
-	void   UpdatePosition();    // Update the position
+	/// Public interfaces
+	void   SetLook();               // Set the visual angle
+	void   LRotate();               // Left Rotate
+	void   RRotate();               // Right Rotate
+	void   URotate();               // Up Rotate
+	void   DRotate();               // Down Rotate
+	void   UpdatePosition();        // Update the position
 
 private:
-
-	float   x;
-	float   y;
-	float   z;
-
-	float   Alpha;
-	float   Beta;
-
-	float   distance;
+	/// Members
+	float   x;               // x position
+	float   y;               // y position
+	float   z;               // z position
+	float   Alpha;           // angle alpha
+	float   Beta;            // angle beta
+	float   distance;        // Distance from this to the center
 
 };
 

@@ -25,7 +25,7 @@ public:
 	virtual void    Draw();         // Implement Draw function
 	virtual void    Update();       // Implement Update function
 
-	void SetInput(CInputSystem * input);    // Set the pointer to input system
+	void SetInput(CInputSystem * input);        // Set the pointer to input system
 
 private:
 	/// Members

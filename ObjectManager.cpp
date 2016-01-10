@@ -16,10 +16,13 @@ ObjectManager::ObjectManager(CInputSystem * input)
 
 	/* Note: Input system must be set before creating
 	objects since cue will have input system memeber */
-	m_Input = input;                                   // Set input
+	m_Input = input;        // Set input
 
 	/// Create objects
 	CreateObjects();
+
+	/// Create light
+	SetLight();
 
 	/// Set texture pool
 	std::vector<OpenGLObject*>::iterator iter;
@@ -37,9 +40,6 @@ ObjectManager::ObjectManager(CInputSystem * input)
 		int direction = rand();
 		((Ball *)m_Objects[i])->SetSpeed(Vector3(0.1f * cos(direction), 0.0f, 0.1f * sin(direction)));
 	}
-
-	/// Create light
-	SetLight();
 }
 
 //===========================================================================//
@@ -64,6 +64,10 @@ ObjectManager::~ObjectManager()
 		m_Textures[i].FreeImage();
 		glDeleteTextures(1, &m_Textures[i].ID);
 	}
+
+	/// Delete light
+	if (m_Light)
+		delete m_Light;
 
 	m_Input = NULL;
 }
@@ -160,7 +164,9 @@ void ObjectManager::SetInitialPosition()
 
 void ObjectManager::SetLight()
 {
+	m_Light = new Light();
 	m_Light->Init();
+	m_Light->SetInput(m_Input);
 }
 
 //===========================================================================//
@@ -190,6 +196,9 @@ void ObjectManager::Update()
 	{
 		(*iter)->Update();
 	}
+
+	/// Update light
+	m_Light->Update();
 
 	/// Balls hit each other
 	for (int i = 2; i < 14; i++)

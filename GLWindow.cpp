@@ -196,13 +196,13 @@ bool GLWindow::Create(const char * window_title, const char * class_name, bool f
 		nY = (hei - GetHeight()) / 2;
 		/// Adjust window's size
 		AdjustWindowRectEx(&windowRect, windowStyle, 0, windowExtendedStyle);
-		/// 判断窗口的左上角是否隐藏在桌面外
-		if (windowRect.left < 0)										/**< 如果窗口X坐标为负，移动坐标到0处，并调整窗口的位置 */
+		
+		if (windowRect.left < 0)
 		{
 			windowRect.right -= windowRect.left;
 			windowRect.left = 0;
 		}
-		if (windowRect.top < 0)											/**< 如果窗口Y坐标为负，移动坐标到0处，并调整窗口的位置 */
+		if (windowRect.top < 0)
 		{
 			windowRect.bottom -= windowRect.top;
 			windowRect.top = 0;
@@ -211,78 +211,78 @@ bool GLWindow::Create(const char * window_title, const char * class_name, bool f
 	}
 
 	/// 创建窗口
-	m_hWnd = CreateWindowEx(windowExtendedStyle,						/**< 窗口的扩展风格 */
-		class_name,									/**< 窗口的类名 */
-		window_title,								/**< 窗口标题 */
-		windowStyle,								/**< 窗口的风格 */
-		nX, nY,                                      /**< 窗口的左上角位置 */
-		windowRect.right - windowRect.left,			/**< 窗口的宽度 */
-		windowRect.bottom - windowRect.top,			/**< 窗口的高度 */
-		HWND_DESKTOP,								/**< 窗口的父窗口为桌面 */
-		0,											/**< 无菜单 */
-		h_instance,									/**< 传入窗口的实例句柄 */
-		lpParam);									/**< 传入程序类参数 */
+	m_hWnd = CreateWindowEx(windowExtendedStyle,
+		class_name,
+		window_title,
+		windowStyle,
+		nX, nY,
+		windowRect.right - windowRect.left,
+		windowRect.bottom - windowRect.top,
+		HWND_DESKTOP,
+		0,
+		h_instance,
+		lpParam);
 
-	while (m_hWnd != 0)													/**< 窗口是否创建成功 */
+	while (m_hWnd != 0)
 	{
-		m_hDC = GetDC(m_hWnd);											/**< 返回窗口的设备描述表 */
-		if (m_hDC == 0)													/**< 如果为空 */
-		{																/**< 失败 */
+		m_hDC = GetDC(m_hWnd);
+		if (m_hDC == 0)
+		{
 			break;
 		}
 
-		GLuint PixelFormat = ChoosePixelFormat(m_hDC, &pfd);			/**< 查找一个兼容的像素格式 */
-		if (PixelFormat == 0)											/**< 如果没找到 */
-		{																/**< 失败 */
+		GLuint PixelFormat = ChoosePixelFormat(m_hDC, &pfd);
+		if (PixelFormat == 0)
+		{
 			break;
 		}
-		if (SetPixelFormat(m_hDC, PixelFormat, &pfd) == false)			/**< 设置像素格式 */
-		{																/**< 失败 */
+		if (SetPixelFormat(m_hDC, PixelFormat, &pfd) == false)
+		{
 			break;
 		}
-		m_hRC = wglCreateContext(m_hDC);								/**< 创建OpenGL的渲染描述表 */
-		if (m_hRC == 0)													/**< 如果为空 */
-		{																/**< 失败 */
+		m_hRC = wglCreateContext(m_hDC);
+		if (m_hRC == 0)
+		{
 			break;
 		}
-		if (wglMakeCurrent(m_hDC, m_hRC) == false)						/**< 设置当前的OpenGL的渲染对象为当前的窗口 */
-		{																/**< 失败 */
+		if (wglMakeCurrent(m_hDC, m_hRC) == false)
+		{
 			break;
 		}
 
-		ShowWindow(m_hWnd, SW_NORMAL);									/**< 显示窗口 */
-		ReshapeGL();													/**< 告诉OpenGL调整窗口大小 */
-		return true;													/**< 成功返回 */
+		ShowWindow(m_hWnd, SW_NORMAL);
+		ReshapeGL();
+		return true;
 	}
 
-	Destroy();															/**< 释放资源 */
-	return false;														/**< 返回失败 */
+	Destroy();
+	return false;
 }
 
 //===========================================================================//
 
 void GLWindow::Destroy()
 {
-	if (m_hWnd != 0)										/**< 窗口句柄是否存在 */
+	if (m_hWnd != 0)
 	{
-		if (m_hDC != 0)										/**< 窗口设备描述表是否存在 */
+		if (m_hDC != 0)
 		{
-			wglMakeCurrent(m_hDC, 0);						/**< 设置当前的OpenGL的渲染对象为空NULL */
-			if (m_hRC != 0)									/**< OpenGL的渲染描述表是否存在 */
+			wglMakeCurrent(m_hDC, 0);
+			if (m_hRC != 0)
 			{
-				wglDeleteContext(m_hRC);					/**< 释放OpenGL的渲染描述表 */
-				m_hRC = 0;									/**< 设置OpenGL的渲染描述表为0 */
+				wglDeleteContext(m_hRC);
+				m_hRC = 0;
 			}
-			ReleaseDC(m_hWnd, m_hDC);						/**< 释放窗口的设备描述表 */
-			m_hDC = 0;										/**< 设置窗口的设备描述表为0 */
+			ReleaseDC(m_hWnd, m_hDC);
+			m_hDC = 0;
 		}
-		DestroyWindow(m_hWnd);								/**< 删除窗口 */
-		m_hWnd = 0;											/**< 设置窗口句柄为0 */
+		DestroyWindow(m_hWnd);
+		m_hWnd = 0;
 	}
 
-	if (m_IsFullScreen)										/**< 如果为全屏模式，在程序结束后，变换到窗口模式，并显示鼠标 */
+	if (m_IsFullScreen)
 	{
-		ChangeDisplaySettings(NULL, 0);						/**< 变换到窗口模式 */
-		ShowCursor(true);									/**< 显示鼠标 */
+		ChangeDisplaySettings(NULL, 0);
+		ShowCursor(true);
 	}
 }
