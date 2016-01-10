@@ -57,7 +57,7 @@ void ParticleExplosion::Init(int num)
 		m_List[i].velocity = Vector3(vx, vy, vz);                     // Set velocity
 		m_List[i].acceleration = Vector3(0.0, -0.0008f, 0.0);         // Set acceleration
 		m_List[i].lifetime = 100.0f;                                  // Set life time
-		m_List[i].size = 0.06f;                                       // Set size
+		m_List[i].size = 0.07f;                                       // Set size
 		m_List[i].dec = 0.05f * (rand() % 50);                        // Set diminishing speed
 
 		/// Set color

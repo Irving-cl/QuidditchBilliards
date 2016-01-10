@@ -6,10 +6,13 @@
 ObjectManager::ObjectManager(CInputSystem * input)
 {
 	/// Initialize textures
-	LoadTextures();                                    // Load textures from files
-	m_TexturePool = new unsigned int[NUM_TEXTURES];    // New array
-	for (int i = 0; i < NUM_TEXTURES; i++)
-		m_TexturePool[i] = m_Textures[i].ID;           // Give values
+	LoadTextures();                                            // Load textures from files
+	m_TexturePool = new unsigned int[NUM_TEXTURES];            // New array
+	m_NatureTexture = new NatureTexture();
+	m_NatureTexture->GenerateTexture();                        // Generate a nature texture
+	for (int i = 0; i < NUM_TEXTURES - 1; i++)
+		m_TexturePool[i] = m_Textures[i].ID;                   // Give values
+	m_TexturePool[NUM_TEXTURES - 1] = m_NatureTexture->ID;
 
 	/* Note: Input system must be set before creating
 	objects since cue will have input system memeber */
@@ -55,8 +58,8 @@ ObjectManager::~ObjectManager()
 	}
 
 	/// Delete textures
-	delete[] m_TexturePool;                   // Delete texture pool
-	for (int i = 0; i < NUM_TEXTURES; i++)    // Free textures
+	delete[] m_TexturePool;                           // Delete texture pool
+	for (int i = 0; i < NUM_TEXTURES - 1; i++)        // Free textures
 	{
 		m_Textures[i].FreeImage();
 		glDeleteTextures(1, &m_Textures[i].ID);
@@ -72,7 +75,7 @@ void ObjectManager::LoadTextures()
 	char filename[128];
 	char *bmpName[] = { "wood", "green_area", "ghost_ball", "wander_ball",
 		"golden_ball", "main_ball", "cue", "sjtu", "wall", "flare" };
-	for (int i = 0; i < NUM_TEXTURES; i++)
+	for (int i = 0; i < NUM_TEXTURES - 1; i++)
 	{
 		sprintf(filename, "data/%s", bmpName[i]);
 		strcat(filename, ".bmp");

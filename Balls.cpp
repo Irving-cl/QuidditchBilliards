@@ -36,7 +36,7 @@ void GhostBall::Draw()
 	{
 		glTranslatef(m_Position.x, m_Position.y, m_Position.z);        // Move the ball to its position
 		Roll();                                                        // Roll
-		glBindTexture(GL_TEXTURE_2D, m_TexturePool[2]);                // Bind texture
+		glBindTexture(GL_TEXTURE_2D, m_TexturePool[10]);               // Bind texture
 		gluSphere(m_Sphere, R, 50, 50);                                // Draw the ball
 	}
 	glPopMatrix();

@@ -4,6 +4,7 @@
 
 #include <vector>
 #include "CBMPLoader.h"
+#include "NatureTexture.h"
 #include "OpenGLObject.h"
 #include "Room.h"
 #include "Table.h"
@@ -34,6 +35,7 @@ private:
 	Light * m_Light;                             // Light in the scene
 	ParticleSystem * m_ParticleSystem;           // Particle system
 	CBMPLoader m_Textures[NUM_TEXTURES];         // Textures
+	NatureTexture * m_NatureTexture;             // NatureTexture;
 	unsigned int * m_TexturePool;                // Texture pool offered to objects to pick textures
 	CInputSystem * m_Input;                      // Pointer to input system
 
